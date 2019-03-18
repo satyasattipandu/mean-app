@@ -1,0 +1,59 @@
+<div>
+  <br />
+  <h3>Patients</h3>
+  <br />
+  <button type="button" class="btn btn-primary" ng-click="addEvent()">
+    <a routerLink="/add-patient" style="color: #fff;">Add Event</a>
+  </button>
+  <br />
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Consulted By</th>
+        <th>Consulted</th>
+        <th>Complains</th>
+        <th>Results</th>
+        <th>Prescription</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let patient of patients">
+        <td>{{patient._id.substr(0, 5)}}</td>
+        <td>
+          <a routerLink="/update-patient/{{patient._id}}">{{patient.firstName}} {{patient.lastName}}</a>
+        </td>
+        <!-- TODO: Enter table list here for patients -->
+        <td>
+          <button type="button" class="btn" data-toggle="modal" data-target="#myModal" (click)="setId(patient._id)"><span class="glyphicon glyphicon-trash"></span></button>
+        </td>
+      </tr>
+    </tbody>
+
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Delete Patient</h4>
+          </div>
+          <div class="modal-body">
+            <p>You are about to delete a patient. This action is irreversible. Are you sure?</p>
+            <input type="password" class="form-control" placeholder="Enter password" [(ngModel)]="password">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="deletePatient()">Delete</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+    
+      </div>
+    </div>
+  </table>
+</div>
