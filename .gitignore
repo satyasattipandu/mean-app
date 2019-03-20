@@ -5,8 +5,9 @@
 /tmp
 /out-tsc
 
-# api/node_modules dependencies
+# dependencies
 /node_modules
+/api/node_modules
 
 # IDEs and editors
 /.idea
@@ -25,6 +26,7 @@
 !.vscode/extensions.json
 
 # misc
+package-lock.json
 /.sass-cache
 /connect.lock
 /coverage
