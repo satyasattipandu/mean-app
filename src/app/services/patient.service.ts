@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
+import { Patient } from './../model/patient';
 
 const endpoint = "http://localhost:5000/patients";
 const httpOptions = {
@@ -14,7 +15,8 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class PatientService {
-
+  baseUrl:string = 'http://localhost:5000';
+  events: Patient[] = [];
   constructor(private http: HttpClient) { }
 
   private extractData(res: Response) {
@@ -22,20 +24,22 @@ export class PatientService {
     return body || {};
   }
 
- /*getPatients(): Observable<any> {
+ getPatients(): Observable<any> {
     // TODO: Make request to API to get patients
-  }*/
+    return this.http.get(`${this.baseUrl}/getAll`).pipe(
+      map(response => <Patient[]>response),
+      catchError(this.handleError));
+  }
 
   /*getPatient(id): Observable<any> {
     // TODO: Make request to API to get patient by id
   }*/
 
-  /*addPatient(patient): Observable<any> {
-    return this.http.post<any>(endpoint, JSON.stringify(patient), httpOptions).pipe(
-      tap((patient) => console.log(`added patient w id ${patient.id}`)),
-      catchError(this.handleError<any>('addPatient'))
-    );
-  }*/
+  addPatient(patient): Observable<any> {
+    return this.http.post(`${this.baseUrl}/add`,event).pipe(
+      map(response => <Patient[]>response),
+      catchError(this.handleError));
+  }
 /*
   updatePatient(id, patient): Observable<any> {
     // TODO: Make request to API to update patient by id
@@ -45,11 +49,14 @@ export class PatientService {
     // TODO: Make request to API to delete patient by id
   }*/
 
-  private handleError<T> (operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      console.error(error);
-      console.log(`${operation} failed: ${error.message}`);
-      return of(result as T);
+  private handleError(err: HttpErrorResponse) {
+    let errorMessage = '';
+
+    if (err.error instanceof Error) {
+      errorMessage = `An error occurred: ${err.error.message}`;
+    } else {
+      errorMessage = `Server returned code: ${err.status}, error message is: ${err.message}`;
     }
+    return throwError(errorMessage);
   }
 }

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { routingModule } from './app.routing';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // TODO: Add http client module
 
@@ -21,7 +22,8 @@ import { UpdatePatientComponent } from './update-patient/update-patient.componen
     routingModule,
     FormsModule,
     // TODO: Add http cliet module here...
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
