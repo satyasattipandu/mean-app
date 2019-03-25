@@ -2,7 +2,7 @@
   <br />
   <h3>Patients</h3>
   <br />
-  <button type="button" class="btn btn-primary" ng-click="addEvent()">
+  <button type="button" class="btn btn-primary" ng-click="addPatient()">
     <a routerLink="/add-patient" style="color: #fff;">Add Event</a>
   </button>
   <br />
@@ -24,9 +24,17 @@
     <tbody>
       <tr *ngFor="let patient of patients">
         <td>{{patient._id.substr(0, 5)}}</td>
+       
         <td>
           <a routerLink="/update-patient/{{patient._id}}">{{patient.firstName}} {{patient.lastName}}</a>
         </td>
+        <td>{{patient.address}}</td>
+        <td>{{patient.phone}}</td>
+        <td>{{patient.consultedBy}}</td>
+        <td>{{patient.consulted}}</td>
+        <td>{{patient.complains}}</td>
+        <td>{{patient.Results}}</td>
+        <td>{{patient.Prescriptions}}</td>
         <!-- TODO: Enter table list here for patients -->
         <td>
           <button type="button" class="btn" data-toggle="modal" data-target="#myModal" (click)="setId(patient._id)"><span class="glyphicon glyphicon-trash"></span></button>

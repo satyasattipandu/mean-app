@@ -21,9 +21,15 @@ export class ListPatientsComponent implements OnInit {
 
   getPatients() {
     this.patients = [];
+    this.patientService.getPatients().subscribe(response => {
+      this.patients = response;
+    })
     // TODO: Make request to get patients and populate patients
   }
-
+  addPatient(){
+  
+    this.router.navigate(['add-patient']);
+  }
   setId(id): void {
     console.log(id);
     this.ID = id;

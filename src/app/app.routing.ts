@@ -6,6 +6,10 @@ import { UpdatePatientComponent } from './update-patient/update-patient.componen
 
 const routes: Routes = [
   // TODO: Configure routes here...
+  { path: '',  redirectTo: '/list-patients', pathMatch: 'full' },
+  { path: 'list-patients', component: ListPatientsComponent },
+  { path: 'add-patient', component:AddPatientComponent},
+  { path: 'update-patient/:id', component: UpdatePatientComponent }
 ];
 
 export const routingModule: ModuleWithProviders = RouterModule.forRoot(routes);
