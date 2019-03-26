@@ -4,25 +4,13 @@ import { Observable, throwError } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
 import { Patient } from './../model/patient';
 
-const endpoint = "http://localhost:5000/patients";
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json'
-  })
-};
-
 @Injectable({
   providedIn: 'root'
 })
 export class PatientService {
   baseUrl: string = 'http://localhost:5000';
-  events: Patient[] = [];
+  patientDetails: Patient[] = [];
   constructor(private http: HttpClient) { }
-
-  private extractData(res: Response) {
-    let body = res;
-    return body || {};
-  }
 
   getPatients(): Observable<any> {
     // TODO: Make request to API to get patients
@@ -40,21 +28,21 @@ export class PatientService {
 
   addPatient(patient): Observable<any> {
     return this.http.post(`${this.baseUrl}/add`, patient).pipe(
-      map(response => <Patient[]>response),
+      map(response => <any[]>response),
       catchError(this.handleError));
   }
 
   updatePatient(id, patient): Observable<any> {
     // TODO: Make request to API to update patient by id
     return this.http.put(`${this.baseUrl}/update/${id}`, patient).pipe(
-      map(response => <Patient[]>response),
+      map(response => <any[]>response),
       catchError(this.handleError));
   }
 
   deletePatient(id): Observable<any> {
     // TODO: Make request to API to delete patient by id
     return this.http.delete(`${this.baseUrl}/delete/${id}`).pipe(
-      map(response => <Patient[]>response),
+      map(response => <any[]>response),
       catchError(this.handleError));
   }
 

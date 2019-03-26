@@ -1,9 +1,7 @@
 <div>
-  <br />
-  <h3>Manage Patient</h3>
-  <form [formGroup]="patientForm">
+  <h3>Add Patient</h3>
+  <form autocomplete="off" [formGroup]="patientForm">
     <div class="modal-body">
-      <!-- TODO: Enter add patient form here -->
       <div class="col-md-12">
         <div class="col-md-12 col-xs-12 user-group mt-20"
           [class.invalid]="submitted && patientForm.controls['firstName'].errors?.required">
@@ -70,8 +68,7 @@
           </div>
         </div>
       </div>
-      
-      <button style="margin-top: 10px" class="btn btn-primary" type="button" (click)="addPatient()">Create Patient</button>
+       <button class="blue-btn mt-20" type="button" (click)="addPatient()">Create Patient</button>
     </div>
   </form>
 </div>
