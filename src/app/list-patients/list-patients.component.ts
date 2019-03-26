@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PatientService } from '../services/patient.service';
 import { Router } from '@angular/router';
+import { e } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-list-patients',
@@ -8,7 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./list-patients.component.css']
 })
 export class ListPatientsComponent implements OnInit {
-
+  p: number = 1;
+  collection: any[];
   patients: any = [];
   password: string;
   ID: any;
@@ -23,6 +25,7 @@ export class ListPatientsComponent implements OnInit {
     this.patients = [];
     this.patientService.getPatients().subscribe(response => {
       this.patients = response;
+      this.collection = response;
     })
     // TODO: Make request to get patients and populate patients
   }
@@ -47,4 +50,13 @@ export class ListPatientsComponent implements OnInit {
     }
   }
 
+  onSearchChange(searchText) {
+    if (searchText.length > 0) {
+      this.patients = this.patients.filter(patient => {
+        return (patient.firstName.toLowerCase()).startsWith(searchText.toLowerCase());
+      });
+    } else {
+      this.patients = this.collection;
+    }
+  }
 }

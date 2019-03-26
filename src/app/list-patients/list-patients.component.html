@@ -1,9 +1,10 @@
-<div>
-  <br />
-  <h3>Patients</h3>
-  <br />
- 
-  <br />
+<div class="col-md-12 mt-20">
+  <div class="col-md-9">
+    <h3>Patients</h3>
+  </div>
+  <div class="col-md-3">
+    <input class="pull-right" type="text" placeholder="Search with name" (input)="onSearchChange($event.target.value)">
+  </div>
   <table class="table">
     <thead>
       <tr>
@@ -20,9 +21,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let patient of patients; let i=index">
+      <tr *ngFor="let patient of patients | paginate: { itemsPerPage: 5, currentPage: p }; let i=index ">
         <td>{{patient._id.substr(0, 5)}}</td>
-       
         <td>
           <a routerLink="/update-patient/{{patient._id}}">{{patient.firstName}} {{patient.lastName}}</a>
         </td>
@@ -35,14 +35,17 @@
         <td>{{patient.Prescriptions}}</td>
         <!-- TODO: Enter table list here for patients -->
         <td>
-          <button type="button" class="btn" data-toggle="modal" data-target="#myModal" (click)="setId(patient._id, i)"><span class="glyphicon glyphicon-trash"></span></button>
+          <button type="button" class="btn" data-toggle="modal" data-target="#myModal"
+            (click)="setId(patient._id, i)"><span class="glyphicon glyphicon-trash"></span></button>
         </td>
+
       </tr>
+
     </tbody>
 
     <div id="myModal" class="modal fade" role="dialog">
       <div class="modal-dialog">
-    
+
         <!-- Modal content-->
         <div class="modal-content">
           <div class="modal-header">
@@ -58,11 +61,13 @@
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           </div>
         </div>
-    
+
       </div>
     </div>
   </table>
+  <div class="pull-right">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
   <button type="button" class="btn btn-primary" ng-click="addPatient()">
     <a routerLink="/add-patient" style="color: #fff;">Add Patient</a>
   </button>
-</div>
