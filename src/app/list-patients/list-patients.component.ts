@@ -12,7 +12,7 @@ export class ListPatientsComponent implements OnInit {
   patients: any = [];
   password: string;
   ID: any;
-
+  index: any;
   constructor(public patientService: PatientService, private router: Router) { }
 
   ngOnInit() {
@@ -26,18 +26,22 @@ export class ListPatientsComponent implements OnInit {
     })
     // TODO: Make request to get patients and populate patients
   }
-  addPatient(){
-  
+  addPatient() {
+
     this.router.navigate(['add-patient']);
   }
-  setId(id): void {
+  setId(id, index): void {
     console.log(id);
     this.ID = id;
+    this.index = index;
   }
 
   deletePatient(): void {
     if (this.password === "1234") {
       // TODO: Make request to delete patient and redirect to patient list on success
+      this.patientService.deletePatient(this.ID).subscribe(response => {
+        this.patients.splice(this.index, 1);
+      })
     } else {
       // TODO: Show alert informing user of wrong password and then redirect to list of patients
     }

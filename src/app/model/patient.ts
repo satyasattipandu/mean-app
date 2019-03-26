@@ -8,7 +8,7 @@ export class Patient {
     gender: string;
     consulted: boolean;
     created_at: Date;
-    complains:string;
+    complaints:string;
     Results: string;
     Prescriptions:string;
     constructor(values: Object = {}) {

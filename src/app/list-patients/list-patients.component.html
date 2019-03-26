@@ -2,9 +2,7 @@
   <br />
   <h3>Patients</h3>
   <br />
-  <button type="button" class="btn btn-primary" ng-click="addPatient()">
-    <a routerLink="/add-patient" style="color: #fff;">Add Event</a>
-  </button>
+ 
   <br />
   <table class="table">
     <thead>
@@ -15,14 +13,14 @@
         <th>Phone</th>
         <th>Consulted By</th>
         <th>Consulted</th>
-        <th>Complains</th>
+        <th>Complaints</th>
         <th>Results</th>
         <th>Prescription</th>
         <th>Actions</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let patient of patients">
+      <tr *ngFor="let patient of patients; let i=index">
         <td>{{patient._id.substr(0, 5)}}</td>
        
         <td>
@@ -32,12 +30,12 @@
         <td>{{patient.phone}}</td>
         <td>{{patient.consultedBy}}</td>
         <td>{{patient.consulted}}</td>
-        <td>{{patient.complains}}</td>
+        <td>{{patient.complaints}}</td>
         <td>{{patient.Results}}</td>
         <td>{{patient.Prescriptions}}</td>
         <!-- TODO: Enter table list here for patients -->
         <td>
-          <button type="button" class="btn" data-toggle="modal" data-target="#myModal" (click)="setId(patient._id)"><span class="glyphicon glyphicon-trash"></span></button>
+          <button type="button" class="btn" data-toggle="modal" data-target="#myModal" (click)="setId(patient._id, i)"><span class="glyphicon glyphicon-trash"></span></button>
         </td>
       </tr>
     </tbody>
@@ -64,4 +62,7 @@
       </div>
     </div>
   </table>
+  <button type="button" class="btn btn-primary" ng-click="addPatient()">
+    <a routerLink="/add-patient" style="color: #fff;">Add Patient</a>
+  </button>
 </div>

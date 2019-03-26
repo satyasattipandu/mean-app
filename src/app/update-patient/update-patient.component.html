@@ -1,11 +1,75 @@
 <div>
-  <br />
   <h3>Update Patient</h3>
-  <form>
+  <form autocomplete="off" [formGroup]="updatePatientForm" (ngSubmit)="updatePatient()" class="mt-20">
     <div class="modal-body">
-      <!-- TODO: Enter update form here... -->
+      <div class="col-md-12">
+        <div class="col-md-12 col-xs-12 user-group mt-20"
+          [class.invalid]="submitted && updatePatientForm.controls['firstName'].errors?.required">
+          <input type="text" formControlName="firstName" id="firstName" required>
+          <label for="firstName">First Name</label>
+          <div class="error-msg-container">
+            Enter valid firstName.
+          </div>
+        </div>
+        <div class="col-md-12 col-xs-12 user-group mt-20"
+          [class.invalid]="submitted && updatePatientForm.controls['lastName'].errors?.required">
+          <input type="text" formControlName="lastName" id="lastName" required>
+          <label for="lastName">Last Name</label>
+          <div class="error-msg-container">
+            Enter valid lastName.
+          </div>
+        </div>
+        <div class="col-md-12 col-xs-12 user-group mt-20"
+          [class.invalid]="submitted && updatePatientForm.controls['age'].errors?.required">
+          <input type="text" formControlName="age" id="age" required>
+          <label for="age">Age</label>
+          <div class="error-msg-container">
+            Enter valid age.
+          </div>
+        </div>
+        <div class="col-md-12 col-xs-12 user-group mt-20"
+          [class.invalid]="submitted && updatePatientForm.controls['gender'].errors?.required">
+          <input type="text" formControlName="gender" id="gender" required>
+          <label for="gender">Gender</label>
+          <div class="error-msg-container">
+            Enter valid gender.
+          </div>
+        </div>
+        <div class="col-md-12 col-xs-12 user-group mt-20"
+          [class.invalid]="submitted && updatePatientForm.controls['address'].errors?.required">
+          <input type="text" formControlName="address" id="address" required>
+          <label for="type">Address</label>
+          <div class="error-msg-container">
+            Enter valid address.
+          </div>
+        </div>
+        <div class="col-md-12 col-xs-12 user-group mt-20"
+          [class.invalid]="submitted && updatePatientForm.controls['phone'].errors?.required">
+          <input type="text" formControlName="phone" id="phone" required>
+          <label for="type">Phone</label>
+          <div class="error-msg-container">
+            Enter valid phone.
+          </div>
+        </div>
+        <div class="col-md-12 col-xs-12 user-group mt-20"
+          [class.invalid]="submitted && updatePatientForm.controls['consultedBy'].errors?.required">
+          <input type="text" formControlName="consultedBy" id="consultedBy" required>
+          <label for="type">consultedBy</label>
+          <div class="error-msg-container">
+            Enter valid text.
+          </div>
+        </div>
+        <div class="col-md-12 col-xs-12 user-group mt-20" [class.invalid]="submitted && 
+        (updatePatientForm.controls['complaints'].errors?.required)">
+          <input type="text" formControlName="complaints" id="complaints">
+          <label for="length">complaints</label>
+          <div class="error-msg-container">
+            <span *ngIf="updatePatientForm.controls['complaints'].errors?.required">Enter valid .</span>
+          </div>
+        </div>
+      </div>
       <br />
-      <button class="btn btn-primary" type="button" (click)="updatePatient()">Update Patient</button>
+      <button type="submit" class="blue-btn mt-20">Update</button>
     </div>
   </form>
 </div>
