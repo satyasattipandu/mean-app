@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { routingModule } from './app.routing';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 // TODO: Add http client module
 
 import { LoginComponent } from './login/login.component';
@@ -29,7 +30,8 @@ import { LoginService } from './services/login.service';
     FormsModule,
     // TODO: Add http cliet module here...
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [LoginService, AuthGuard],
   bootstrap: [AppComponent]
