@@ -1,8 +1,8 @@
 <div>
-  <h3>Update Patient</h3>
+  
   <form autocomplete="off" [formGroup]="updatePatientForm" (ngSubmit)="updatePatient()" class="mt-20">
-    <div class="modal-body">
-      <div class="col-md-12">
+      <div class="update-component-block col-md-12">
+          <h3 class="text-center">Update Patient</h3>
         <div class="col-md-12 col-xs-12 user-group mt-20"
           [class.invalid]="submitted && updatePatientForm.controls['firstName'].errors?.required">
           <input type="text" formControlName="firstName" id="firstName" required>
@@ -67,9 +67,8 @@
             <span *ngIf="updatePatientForm.controls['complaints'].errors?.required">Enter valid .</span>
           </div>
         </div>
+        <button type="submit" class="blue-btn mt-20">Update</button>
       </div>
-      <br />
-      <button type="submit" class="blue-btn mt-20">Update</button>
-    </div>
+     
   </form>
 </div>

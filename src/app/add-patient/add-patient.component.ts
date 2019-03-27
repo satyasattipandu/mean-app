@@ -12,6 +12,7 @@ export class AddPatientComponent implements OnInit {
 
   newPatient: any;
   patientForm: FormGroup;
+  submitted: boolean = false;
   constructor(private patientService: PatientService, private router: Router, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
@@ -39,6 +40,7 @@ export class AddPatientComponent implements OnInit {
   // });
 
   addPatient(): void {
+    this.submitted = !this.submitted;
     this.patientForm.value.views = 0;
     this.newPatient = this.patientForm.value;
     console.log(this.newPatient);
