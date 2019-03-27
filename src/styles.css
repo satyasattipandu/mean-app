@@ -2,6 +2,7 @@
 body {
   text-align: left;
   padding: 10%;
+  background-image: linear-gradient(to right, rgba(100,204,201, 0.5), rgba(131,164,212, 0.8));
 }
 
 /* You can add global styles to this file, and also import other style files */
@@ -26,12 +27,13 @@ body {
   min-height: 500px;
   padding: 48px 40px 36px;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 15px;
+  box-shadow: 4px 4px 15px rgba(0,0,0,0.2);
 }
 input {
   outline: none;
   border-radius: 4px;
-  margin: 1px 1px 0 1px;
+  margin: 1px 1px 13px 1px;
   padding: 13px 15px;
   font-size: 16px;
   border: 1px solid #dadce0;
@@ -74,7 +76,7 @@ label {
   color: #202124;
   font-weight: 400;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 45px;
 }
 .align-center {
   text-align: center;
@@ -89,6 +91,9 @@ label {
   box-shadow: none;
   border: 1px solid #1a73e8;
   border-radius: 5px;
+  margin:0 auto;
+  display: block;
+  
 }
 .create-account-link {
 color: #007bff;
@@ -119,4 +124,25 @@ display: none;
 .signin-question{
   color: #5f6368;
   font-size: 16px;
+}
+.add-component-block,
+.update-component-block{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  border: 1px solid #dadce0;
+  display: block;
+  margin: 0 auto;
+  background: #fff;
+  max-width: 100%;
+  color: #202124;
+  font-weight: 400;
+  line-height: 1.3333;
+  height: auto;
+  min-height: 500px;
+  padding: 48px 40px 36px;
+  box-shadow: 4px 4px 15px rgba(0,0,0,0.2);
+  border-radius: 15px;
 }

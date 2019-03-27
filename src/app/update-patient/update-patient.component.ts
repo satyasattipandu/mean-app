@@ -51,6 +51,7 @@ export class UpdatePatientComponent implements OnInit {
   }
 
   updatePatient(): void {
+    this.submitted = !this.submitted;
     // TODO: make request to update patient, redirect to patient list on success
     this.patientService.updatePatient(this.id, this.updatePatientForm.value).subscribe(response => {
       this.router.navigate(['/list-patients']);
