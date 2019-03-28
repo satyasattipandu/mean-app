@@ -10,3 +10,7 @@
 .add-component-block .input{
   margin: 0;
 }
+.row {
+  margin: 0;
+  padding: 20px;
+}

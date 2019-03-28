@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Router } from '@angular/router';
+import { Router , ActivatedRoute } from '@angular/router';
 import { PatientService } from '../services/patient.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
@@ -53,9 +52,11 @@ export class UpdatePatientComponent implements OnInit {
   updatePatient(): void {
     this.submitted = !this.submitted;
     // TODO: make request to update patient, redirect to patient list on success
-    this.patientService.updatePatient(this.id, this.updatePatientForm.value).subscribe(response => {
-      this.router.navigate(['/list-patients']);
-    })
+    if(this.updatePatientForm.valid){
+      this.patientService.updatePatient(this.id, this.updatePatientForm.value).subscribe(response => {
+        this.router.navigate(['/list-patients']);
+      });
+    }
   }
 
 }

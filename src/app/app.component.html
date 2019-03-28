@@ -1,1 +1,5 @@
-<router-outlet></router-outlet>
+<app-header *ngIf="this.loginService.getAuthentication()"></app-header>
+<div class="main-container">
+    <router-outlet></router-outlet>
+</div>
+<app-footer *ngIf="this.loginService.getAuthentication()"></app-footer>

@@ -40,13 +40,16 @@ export class ListPatientsComponent implements OnInit {
   }
 
   deletePatient(): void {
-    if (this.password === "1234") {
+    let userInfo = JSON.parse(localStorage.getItem('userInfo'));
+    if (this.password === userInfo['password']) {
       // TODO: Make request to delete patient and redirect to patient list on success
       this.patientService.deletePatient(this.ID).subscribe(response => {
         this.patients.splice(this.index, 1);
       })
     } else {
       // TODO: Show alert informing user of wrong password and then redirect to list of patients
+      alert('your password is incorrect');
+      this.router.navigate(['list-patients']);
     }
   }
 

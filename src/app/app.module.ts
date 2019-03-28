@@ -12,8 +12,14 @@ import { AppComponent } from './app.component';
 import { AddPatientComponent } from './add-patient/add-patient.component';
 import { ListPatientsComponent } from './list-patients/list-patients.component';
 import { UpdatePatientComponent } from './update-patient/update-patient.component';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
+import { ContactsComponent } from './contacts/contacts.component';
+import { DepartmentsComponent } from './departments/departments.component';
+
 import { AuthGuard } from './services/auth-guard.service';
 import { LoginService } from './services/login.service';
+
 
 @NgModule({
   declarations: [
@@ -22,13 +28,16 @@ import { LoginService } from './services/login.service';
     ListPatientsComponent,
     UpdatePatientComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    FooterComponent,
+    HeaderComponent,
+    ContactsComponent,
+    DepartmentsComponent
   ],
   imports: [
     BrowserModule,
     routingModule,
     FormsModule,
-    // TODO: Add http cliet module here...
     ReactiveFormsModule,
     HttpClientModule,
     NgxPaginationModule

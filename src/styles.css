@@ -70,6 +70,9 @@ label {
   left: 25px;
   z-index: 1;
 }
+.main-container {
+  min-height: 1200px;
+}
 
 .login {
   font-size: 25px;
@@ -140,6 +143,15 @@ display: none;
 .add-component-block,
 .update-component-block{
   width: 30%;
+  padding: 40px;
+}
+.add-component-block .user-group,
+.update-component-block .user-group {
+  margin-bottom: 15px;
+}
+.add-component-block .user-group input,
+.update-component-block .user-group input {
+  margin: 0;
 }
 .list-patients-block{
   width: 80%;

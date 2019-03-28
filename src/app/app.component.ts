@@ -8,7 +8,7 @@ import { LoginService } from './services/login.service';
 })
 export class AppComponent {
   title = 'ng-health';
-  constructor(private _loginService: LoginService) {
+  constructor(private loginService: LoginService) {
     
   }
 }

@@ -1,0 +1,12 @@
+.event-app-footer{
+    background: #343a40;
+    overflow: hidden;
+    text-align: center;
+    color: #fff;
+    display: block;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+}
