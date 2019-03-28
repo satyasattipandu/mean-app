@@ -10,14 +10,13 @@ import { DepartmentsComponent } from './departments/departments.component';
 import { AuthGuard } from './services/auth-guard.service';
 
 const routes: Routes = [
-  // TODO: Configure routes here...
   { path: '',  redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'list-patients', component: ListPatientsComponent, canActivate: [AuthGuard] },
   { path: 'add-patient', component:AddPatientComponent, canActivate: [AuthGuard] },
-  { path: 'update-patient/:id', component: UpdatePatientComponent, canActivate: [AuthGuard] }
-  { path: 'contacts', component: ContactsComponent, canActivate: [AuthGuard] }
+  { path: 'update-patient/:id', component: UpdatePatientComponent, canActivate: [AuthGuard] },
+  { path: 'contacts', component: ContactsComponent, canActivate: [AuthGuard] },
   { path: 'departments', component: DepartmentsComponent, canActivate: [AuthGuard] }
 ];
 
