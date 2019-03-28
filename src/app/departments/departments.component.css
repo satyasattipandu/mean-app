@@ -1,0 +1,46 @@
+.departments {
+    position: relative;
+}
+.departments {
+    position: absolute;
+    top: 10%;
+    left: 15%;
+    min-height: 900px;
+    background: white;
+    border-radius: 30px;
+    width: 60%;
+    padding: 40px;
+}
+fieldset {
+    border: 2px solid green;
+    margin-bottom: 20px;
+}
+legend {
+    width: auto;
+    font-size: 25px;
+    color: orange;
+    padding: 0 10px;
+}
+.dept-des {
+    color: black;
+    font-size: 16px;
+}
+.dept-img {
+    background-size: cover !important;
+    margin-left: 2%;
+}
+.card-image {
+    background: url('/assets/images/cardiology.jpg') no-repeat;
+}
+.nuero-image {
+    background: url('/assets/images/neurology.jpg') no-repeat;
+}
+.opt-image {
+    background: url('/assets/images/opt.jpg') no-repeat;
+}
+.blocks {
+    width: 48%;
+    height: 280px;
+    padding: 20px;
+    float: left;
+}
