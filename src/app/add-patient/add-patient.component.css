@@ -4,6 +4,9 @@
     margin-right:auto;
     display: block;
 }
-.complaints{
-    margin-bottom:30px;
+.add-component-block .mt-3 {
+    margin-top: 3px;
+}
+.add-component-block .input{
+  margin: 0;
 }

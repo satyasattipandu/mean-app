@@ -1,9 +1,8 @@
-<div>
-  
+<div class="row">
   <form autocomplete="off" [formGroup]="patientForm">
     <div class="add-component-block col-md-12">
       <h3 class="text-center">Add Patient</h3>
-      <div class="col-md-12 col-xs-12 user-group mt-20"
+      <div class="col-md-12 col-xs-12 user-group mt-3"
       [class.invalid]="submitted && patientForm.controls['firstName'].errors?.required">
       <input type="text" formControlName="firstName" id="firstName" required>
       <label for="firstName">First Name</label>
@@ -11,7 +10,7 @@
         Enter valid firstName.
       </div>
     </div>
-    <div class="col-md-12 col-xs-12 user-group mt-20"
+    <div class="col-md-12 col-xs-12 user-group mt-3"
     [class.invalid]="submitted && patientForm.controls['lastName'].errors?.required">
     <input type="text" formControlName="lastName" id="lastName" required>
     <label for="lastName">Last Name</label>
@@ -19,7 +18,7 @@
       Enter valid lastName.
     </div>
   </div>
-  <div class="col-md-12 col-xs-12 user-group mt-20"
+  <div class="col-md-12 col-xs-12 user-group mt-3"
   [class.invalid]="submitted && patientForm.controls['age'].errors?.required">
   <input type="text" formControlName="age" id="age" required>
   <label for="age">Age</label>
@@ -27,7 +26,7 @@
     Enter valid age.
   </div>
 </div>
-<div class="col-md-12 col-xs-12 user-group mt-20"
+<div class="col-md-12 col-xs-12 user-group mt-3"
 [class.invalid]="submitted && patientForm.controls['gender'].errors?.required">
 <input type="text" formControlName="gender" id="gender" required>
 <label for="gender">Gender</label>
@@ -35,7 +34,7 @@
   Enter valid gender.
 </div>
 </div>
-<div class="col-md-12 col-xs-12 user-group mt-20"
+<div class="col-md-12 col-xs-12 user-group mt-3"
 [class.invalid]="submitted && patientForm.controls['address'].errors?.required">
 <input type="text" formControlName="address" id="address" required>
 <label for="type">Address</label>
@@ -43,7 +42,7 @@
   Enter valid address.
 </div>
 </div>
-<div class="col-md-12 col-xs-12 user-group mt-20"
+<div class="col-md-12 col-xs-12 user-group mt-3"
 [class.invalid]="submitted && patientForm.controls['phone'].errors?.required">
 <input type="text" formControlName="phone" id="phone" required>
 <label for="type">Phone</label>
@@ -51,7 +50,7 @@
   Enter valid phone.
 </div>
 </div>
-<div class="col-md-12 col-xs-12 user-group mt-20"
+<div class="col-md-12 col-xs-12 user-group mt-3"
 [class.invalid]="submitted && patientForm.controls['consultedBy'].errors?.required">
 <input type="text" formControlName="consultedBy" id="consultedBy" required>
 <label for="type">consultedBy</label>
@@ -59,7 +58,7 @@
   Enter valid text.
 </div>
 </div>
-<div class="col-md-12 col-xs-12 user-group mt-20" [class.invalid]="submitted && 
+<div class="col-md-12 col-xs-12 user-group mt-3" [class.invalid]="submitted && 
 (patientForm.controls['complaints'].errors?.required)">
 <input class="complaints" type="text" formControlName="complaints" id="complaints">
 <label for="length">complaints</label>
@@ -67,7 +66,7 @@
   <span *ngIf="patientForm.controls['complaints'].errors?.required">Enter valid .</span>
 </div>
 </div>
-<div class="col-md-12 col-xs-12 user-group mt-20">
+<div class="col-md-12 col-xs-12 user-group mt-3">
   <button class="blue-btn " type="button" (click)="addPatient()">Create Patient</button>
 </div>
 </div>

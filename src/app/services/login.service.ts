@@ -13,33 +13,16 @@ export class LoginService {
   isAuthenticated: boolean = false;
   constructor(private http: HttpClient) { }
 
-  // Add an event
+  // Sign in Method
   signIn(userDetails) {
-    // TODO: Request to sign in
     return this.http.post(`${this.baseUrl}/login`,userDetails).pipe(
-      map(response => <any[]>response),
-      catchError(this.handleError));
+      map(response => <any[]>response));
   }
 
-   // Add an event
+   // Sign up  Method
    signUp(signupDetails) {
-    // TODO: Request to sign up for first time
     return this.http.post(`${this.baseUrl}/signup`,signupDetails).pipe(
-      map(response => <any[]>response),
-      catchError(this.handleError));
-  }
-
-  private handleError(err: HttpErrorResponse) {
-    let errorMessage = '';
-
-    if (err.error instanceof Error) {
-      errorMessage = `An error occurred: ${err.error.message}`;
-    } else {
-      errorMessage = `Server returned code: ${err.status}, error message is: ${err.message}`;
-    }
-
-    console.error(errorMessage);
-    return throwError(errorMessage);
+      map(response => <any[]>response));
   }
 
   public setAuthentication(value) {

@@ -11,13 +11,12 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  // newEvent: Events = new Events();
   data: any;
   userDetails: any;
   loginForm: FormGroup;
   submitted: boolean = false;
   isAuthenticated: boolean = false;
-  errorMessage: object = {};
+  errorMessage: string = '';
   constructor(private loginService: LoginService,
     private router: Router,
     private formBuilder: FormBuilder) { }
@@ -44,8 +43,7 @@ export class LoginComponent implements OnInit {
       },
         (error) => {
           this.isAuthenticated = false;
-          this.errorMessage = error;
-          console.log(this.errorMessage);
+          this.errorMessage = error['error'].message;
         });
     }
   }

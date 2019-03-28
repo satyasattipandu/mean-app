@@ -1,8 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 body {
   text-align: left;
-  padding: 10%;
-  background-image: linear-gradient(to right, rgba(100,204,201, 0.5), rgba(131,164,212, 0.8));
+  background: url('/assets/images/health-care.jpg') no-repeat;
+  background-size: cover;
 }
 
 /* You can add global styles to this file, and also import other style files */
@@ -93,7 +93,6 @@ label {
   border-radius: 5px;
   margin:0 auto;
   display: block;
-  
 }
 .create-account-link {
 color: #007bff;
@@ -125,24 +124,26 @@ display: none;
   color: #5f6368;
   font-size: 16px;
 }
+.list-patients-block,
 .add-component-block,
 .update-component-block{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 40%;
+  margin: 5% 5% 0 5%;
   border: 1px solid #dadce0;
   display: block;
-  margin: 0 auto;
   background: #fff;
-  max-width: 100%;
-  color: #202124;
-  font-weight: 400;
   line-height: 1.3333;
   height: auto;
   min-height: 500px;
-  padding: 48px 40px 36px;
   box-shadow: 4px 4px 15px rgba(0,0,0,0.2);
   border-radius: 15px;
+}
+.add-component-block,
+.update-component-block{
+  width: 30%;
+}
+.list-patients-block{
+  width: 80%;
+  min-height: 200px;
+  margin: 10% 10%;
+  padding: 10px;;
 }

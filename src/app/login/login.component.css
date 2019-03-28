@@ -1,1 +1,4 @@
-
+.error-msg-container.user-authentication{
+    font-weight: bold;
+    text-align: center;
+}

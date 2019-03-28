@@ -1,9 +1,7 @@
-<div class="col-md-12 mt-20">
-  <div class="col-md-9">
-    <h3>Patients</h3>
-  </div>
-  <div class="col-md-3">
-    <input class="pull-right" type="text" placeholder="Search with name" (input)="onSearchChange($event.target.value)">
+<div class="list-patients-block col-md-12 mt-20">
+  <div class="table-heading">
+    <h3 class="d-line pull-left">List Of Patients</h3>
+    <input class="search-box pull-right" type="text" placeholder="Search" (input)="onSearchChange($event.target.value)">
   </div>
   <table class="table">
     <thead>
@@ -33,12 +31,10 @@
         <td>{{patient.complaints}}</td>
         <td>{{patient.Results}}</td>
         <td>{{patient.Prescriptions}}</td>
-        <!-- TODO: Enter table list here for patients -->
         <td>
           <button type="button" class="btn" data-toggle="modal" data-target="#myModal"
             (click)="setId(patient._id, i)"><span class="glyphicon glyphicon-trash"></span></button>
         </td>
-
       </tr>
 
     </tbody>
@@ -68,6 +64,6 @@
   <div class="pull-right">
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </div>
-  <button type="button" class="btn btn-primary" ng-click="addPatient()">
+  <button type="button" class="btn btn-primary">
     <a routerLink="/add-patient" style="color: #fff;">Add Patient</a>
   </button>
