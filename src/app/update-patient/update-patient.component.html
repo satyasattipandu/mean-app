@@ -4,27 +4,32 @@
       <div class="update-component-block col-md-12">
           <h3 class="text-center">Update Patient</h3>
         <div class="col-md-12 col-xs-12 user-group mt-3"
-          [class.invalid]="submitted && updatePatientForm.controls['firstName'].errors?.required">
+          [class.invalid]="(submitted && updatePatientForm.controls['firstName'].errors?.required) ||
+          updatePatientForm.controls['firstName'].errors?.pattern ">
           <input type="text" formControlName="firstName" id="firstName" required>
           <label for="firstName">First Name</label>
           <div class="error-msg-container">
-            Enter valid firstName.
+            <span *ngIf="updatePatientForm.controls['firstName'].errors?.required">Enter valid firstname.</span>
+            <span *ngIf="updatePatientForm.controls['firstName'].errors?.pattern">Enter firstname of 3-24 letters atleast.</span>
           </div>
         </div>
         <div class="col-md-12 col-xs-12 user-group mt-3"
-          [class.invalid]="submitted && updatePatientForm.controls['lastName'].errors?.required">
+          [class.invalid]="(submitted && updatePatientForm.controls['lastName'].errors?.required)||
+          updatePatientForm.controls['lastName'].errors?.pattern">
           <input type="text" formControlName="lastName" id="lastName" required>
           <label for="lastName">Last Name</label>
           <div class="error-msg-container">
-            Enter valid lastName.
+            <span *ngIf="updatePatientForm.controls['lastName'].errors?.required">Enter valid lastname.</span>
+            <span *ngIf="updatePatientForm.controls['lastName'].errors?.pattern">Enter firstname of 3-24 letters atleast.</span>
           </div>
         </div>
         <div class="col-md-12 col-xs-12 user-group mt-3"
-          [class.invalid]="submitted && updatePatientForm.controls['age'].errors?.required">
+          [class.invalid]="(submitted && updatePatientForm.controls['age'].errors?.required) || updatePatientForm.controls['age'].errors?.required">
           <input type="text" formControlName="age" id="age" required>
           <label for="age">Age</label>
           <div class="error-msg-container">
-            Enter valid age.
+            <span *ngIf="updatePatientForm.controls['age'].errors?.required">Enter valid age.</span>
+            <span *ngIf="updatePatientForm.controls['age'].errors?.pattern">Enter age upto 99 years only.</span>
           </div>
         </div>
         <div class="col-md-12 col-xs-12 user-group mt-3"
@@ -36,35 +41,39 @@
           </div>
         </div>
         <div class="col-md-12 col-xs-12 user-group mt-3"
-          [class.invalid]="submitted && updatePatientForm.controls['address'].errors?.required">
+          [class.invalid]="(submitted && updatePatientForm.controls['address'].errors?.required) || updatePatientForm.controls['address'].errors?.pattern">
           <input type="text" formControlName="address" id="address" required>
           <label for="type">Address</label>
           <div class="error-msg-container">
-            Enter valid address.
+            <span *ngIf="updatePatientForm.controls['address'].errors?.required">Enter Valid Address</span>
+            <span *ngIf="updatePatientForm.controls['address'].errors?.pattern">Enter address upto 1000 characters only.</span>  
           </div>
         </div>
         <div class="col-md-12 col-xs-12 user-group mt-3"
-          [class.invalid]="submitted && updatePatientForm.controls['phone'].errors?.required">
+          [class.invalid]="(submitted && updatePatientForm.controls['phone'].errors?.required) || updatePatientForm.controls['phone'].errors?.pattern">
           <input type="text" formControlName="phone" id="phone" required>
           <label for="type">Phone</label>
           <div class="error-msg-container">
-            Enter valid phone.
+            <span *ngIf="updatePatientForm.controls['phone'].errors?.required">Enter valid phone number.</span>
+            <span *ngIf="updatePatientForm.controls['phone'].errors?.pattern">Enter phone in format (888-888-8888).</span>
           </div>
         </div>
         <div class="col-md-12 col-xs-12 user-group mt-3"
-          [class.invalid]="submitted && updatePatientForm.controls['consultedBy'].errors?.required">
+          [class.invalid]="(submitted && updatePatientForm.controls['consultedBy'].errors?.required) || updatePatientForm.controls['consultedBy'].errors?.required">
           <input type="text" formControlName="consultedBy" id="consultedBy" required>
           <label for="type">consultedBy</label>
           <div class="error-msg-container">
-            Enter valid text.
+            <span *ngIf="updatePatientForm.controls['consultedBy'].errors?.required">Enter valid consulatant name.</span>
+            <span *ngIf="updatePatientForm.controls['consultedBy'].errors?.pattern">Enter consultant name upto 1000letters only.</span>
           </div>
         </div>
-        <div class="col-md-12 col-xs-12 user-group mt-3" [class.invalid]="submitted && 
-        (updatePatientForm.controls['complaints'].errors?.required)">
+        <div class="col-md-12 col-xs-12 user-group mt-3" [class.invalid]="(submitted && 
+        updatePatientForm.controls['complaints'].errors?.required) || updatePatientForm.controls['complaints'].errors?.pattern">
           <input type="text" formControlName="complaints" id="complaints">
           <label for="length">complaints</label>
           <div class="error-msg-container">
-            <span *ngIf="updatePatientForm.controls['complaints'].errors?.required">Enter valid .</span>
+            <span *ngIf="updatePatientForm.controls['complaints'].errors?.required">Enter valid comments.</span>
+            <span *ngIf="updatePatientForm.controls['complaints'].errors?.pattern">Enter valid comments upto 1000 letters only.</span>
           </div>
         </div>
         <button type="submit" class="blue-btn mt-3">Update</button>

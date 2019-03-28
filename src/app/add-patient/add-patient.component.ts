@@ -17,38 +17,24 @@ export class AddPatientComponent implements OnInit {
 
   ngOnInit() {
     this.patientForm = this.formBuilder.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      age: ['', Validators.required],
+      firstName: ['', [Validators.required,Validators.pattern('^[a-zA-Z]{3,24}$')]],
+      lastName: ['', [Validators.required,Validators.pattern('^[a-zA-Z]{3,24}$')]],
+      age: ['', [Validators.required,Validators.pattern('^[0-9]{1,2}$')]],
       gender:['', Validators.required],
       address:['', Validators.required],
-      phone:['', Validators.required],
-      consultedBy:['', Validators.required],
-      complaints:['', Validators.required]
+      phone:['', [Validators.required,Validators.pattern('^[0-9]{3}-[0-9]{3}-[0-9]{4}$')]],
+      consultedBy:['',  [Validators.required,Validators.pattern('^[a-zA-Z]{1,1000}$')]],
+      complaints:['', [Validators.required,Validators.pattern('^[a-zA-Z]{1,1000}$')]]
     });
   }
-
-  // patientForm = new FormGroup({
-  //   firstName: new FormControl(),
-  //   lastName: new FormControl(),
-  //   age: new FormControl(),
-  //   gender: new FormControl(),
-  //   address: new FormControl(),
-  //   phone: new FormControl(),
-  //   consultedBy: new FormControl(),
-  //   complaints: new FormControl()
-  // });
 
   addPatient(): void {
     this.submitted = !this.submitted;
     this.patientForm.value.views = 0;
     this.newPatient = this.patientForm.value;
-    console.log(this.newPatient);
     this.patientService.addPatient(this.newPatient).subscribe((result) => {
-      console.log(result);
       this.router.navigate(['/list-patients']);
     }, (err) => {
-      console.log(err);
     })
   }
 }

@@ -3,31 +3,34 @@
     <div class="add-component-block col-md-12">
       <h3 class="text-center">Add Patient</h3>
       <div class="col-md-12 col-xs-12 user-group mt-3"
-      [class.invalid]="submitted && patientForm.controls['firstName'].errors?.required">
+      [class.invalid]="(submitted && patientForm.controls['firstName'].errors?.required) || patientForm.controls['firstName'].errors?.pattern">
       <input autocomplete="first-name" type="text" formControlName="firstName" id="firstName" required>
       <label for="firstName">First Name</label>
       <div class="error-msg-container">
-        Enter valid firstName.
+        <span *ngIf="patientForm.controls['firstName'].errors?.required">Enter valid firstname.</span>
+        <span *ngIf="patientForm.controls['firstName'].errors?.pattern">Enter firstname of 3-24 letters atleast.</span>
       </div>
     </div>
     <div class="col-md-12 col-xs-12 user-group mt-3"
-    [class.invalid]="submitted && patientForm.controls['lastName'].errors?.required">
+    [class.invalid]="(submitted && patientForm.controls['lastName'].errors?.required) || patientForm.controls['lastName'].errors?.pattern">
     <input autocomplete="last-name"  type="text" formControlName="lastName" id="lastName" required>
     <label for="lastName">Last Name</label>
     <div class="error-msg-container">
-      Enter valid lastName.
+      <span *ngIf="patientForm.controls['lastName'].errors?.required">Enter valid lastname.</span>
+      <span *ngIf="patientForm.controls['lastName'].errors?.pattern">Enter firstname of 3-24 letters atleast.</span>
     </div>
   </div>
   <div class="col-md-12 col-xs-12 user-group mt-3"
-  [class.invalid]="submitted && patientForm.controls['age'].errors?.required">
+  [class.invalid]="(submitted && patientForm.controls['age'].errors?.required) || patientForm.controls['age'].errors?.pattern">
   <input  autocomplete="age" type="text" formControlName="age" id="age" required>
   <label for="age">Age</label>
   <div class="error-msg-container">
-    Enter valid age.
+    <span *ngIf="patientForm.controls['age'].errors?.required">Enter valid age.</span>
+    <span *ngIf="patientForm.controls['age'].errors?.pattern">Enter age upto 99 years only.</span>
   </div>
 </div>
 <div class="col-md-12 col-xs-12 user-group mt-3"
-[class.invalid]="submitted && patientForm.controls['gender'].errors?.required">
+[class.invalid]="(submitted && patientForm.controls['gender'].errors?.required)">
 <input autocomplete="gender" type="text" formControlName="gender" id="gender" required>
 <label for="gender">Gender</label>
 <div class="error-msg-container">
@@ -35,35 +38,39 @@
 </div>
 </div>
 <div class="col-md-12 col-xs-12 user-group mt-3"
-[class.invalid]="submitted && patientForm.controls['address'].errors?.required">
+[class.invalid]="(submitted && patientForm.controls['address'].errors?.required) || patientForm.controls['address'].errors?.pattern">
 <input autocomplete="address"  type="text" formControlName="address" id="address" required>
 <label for="type">Address</label>
 <div class="error-msg-container">
-  Enter valid address.
+  <span *ngIf="patientForm.controls['address'].errors?.required">Enter Valid Address</span>
+  <span *ngIf="patientForm.controls['address'].errors?.pattern">Enter address upto 1000 characters only.</span>  
 </div>
 </div>
 <div class="col-md-12 col-xs-12 user-group mt-3"
-[class.invalid]="submitted && patientForm.controls['phone'].errors?.required">
+[class.invalid]="(submitted && patientForm.controls['phone'].errors?.required) || patientForm.controls['phone'].errors?.pattern">
 <input autocomplete="phone" type="text" formControlName="phone" id="phone" required>
 <label for="type">Phone</label>
 <div class="error-msg-container">
-  Enter valid phone.
+  <span *ngIf="patientForm.controls['phone'].errors?.required">Enter valid phone number.</span>
+  <span *ngIf="patientForm.controls['phone'].errors?.pattern">Enter phone in format (888-888-8888).</span>
 </div>
 </div>
 <div class="col-md-12 col-xs-12 user-group mt-3"
-[class.invalid]="submitted && patientForm.controls['consultedBy'].errors?.required">
+[class.invalid]="(submitted && patientForm.controls['consultedBy'].errors?.required) || patientForm.controls['consultedBy'].errors?.pattern">
 <input  autocomplete="consultedBy"  type="text" formControlName="consultedBy" id="consultedBy" required>
 <label for="type">consultedBy</label>
 <div class="error-msg-container">
-  Enter valid consulatant name.
+  <span *ngIf="patientForm.controls['consultedBy'].errors?.required">Enter valid consulatant name.</span>
+  <span *ngIf="patientForm.controls['consultedBy'].errors?.pattern">Enter consultant name upto 1000letters only.</span>
 </div>
 </div>
 <div class="col-md-12 col-xs-12 user-group mt-3" [class.invalid]="submitted && 
-(patientForm.controls['complaints'].errors?.required)">
+(patientForm.controls['complaints'].errors?.required) || patientForm.controls['complaints'].errors?.pattern">
 <input autocomplete="complaints" class="complaints" type="text" formControlName="complaints" id="complaints">
 <label for="length">complaints</label>
 <div class="error-msg-container">
   <span *ngIf="patientForm.controls['complaints'].errors?.required">Enter valid comments.</span>
+  <span *ngIf="patientForm.controls['complaints'].errors?.pattern">Enter valid comments upto 1000 letters only.</span>
 </div>
 </div>
 <div class="col-md-12 col-xs-12 user-group mt-3">
