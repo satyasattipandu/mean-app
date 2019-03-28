@@ -20,14 +20,14 @@ export class UpdatePatientComponent implements OnInit {
 
   ngOnInit() {
     this.updatePatientForm = this.formBuilder.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      age: ['', Validators.required],
-      gender: ['', Validators.required],
-      address: ['', Validators.required],
-      phone: ['', Validators.required],
-      consultedBy: ['', Validators.required],
-      complaints: ['', Validators.required]
+      firstName: ['', [Validators.required,Validators.pattern('^[a-zA-Z]{3,24}$')]],
+      lastName: ['', [Validators.required,Validators.pattern('^[a-zA-Z]{3,24}$')]],
+      age: ['', [Validators.required,Validators.pattern('^[0-9]{1,2}$')]],
+      gender:['', Validators.required],
+      address:['', Validators.required],
+      phone:['', [Validators.required,Validators.pattern('^[0-9]{3}-[0-9]{3}-[0-9]{4}$')]],
+      consultedBy:['',  [Validators.required,Validators.pattern('^[a-zA-Z]{1,1000}$')]],
+      complaints:['', [Validators.required,Validators.pattern('^[a-zA-Z]{1,1000}$')]]
     });
     this.getPatient(this.id);
   }
